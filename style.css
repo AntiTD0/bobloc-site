@@ -1,0 +1,848 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+    padding: 0;
+    
+}
+
+
+
+:root {
+--box-sw: 0 .2rem 0 black;
+--box-sww: 0 .2rem 0 white;
+--b-box-sw: 0 .125rem 0 black;
+
+--w-bor: solid .15rem white;
+--b-bor: solid .15rem black;
+
+--bb-bor: solid black .1rem;
+
+--l-green: rgb(233, 255, 233);
+--b-green: rgb(150, 255, 150);
+--n-green: rgb(154, 230, 154);
+--d-green: rgb(46, 125, 46);
+
+--trnspr-g: rgba(140, 240, 140, 0.7);
+
+}
+
+
+html{
+  font-size: clamp(1rem, 1rem + 1.25vw, 4rem);
+}
+
+
+
+
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('/context-pictures/custom-roblox-nature-art.jpg');
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1{
+  font-size: 2em;
+}
+
+h2{
+  font-size: 1.5em;
+}
+
+h3{
+  font-size: 1.25em;
+}
+
+button{
+  font-size: .85em;
+}
+
+a{
+    display: block;
+    font-size: 1rem;
+}
+
+
+
+header {
+    position: sticky;
+    top: 0;
+    height: 3rem;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 1rem;
+    background: var(--n-green);
+    border-bottom: white solid .1rem;
+    box-shadow: 0 .2rem 0 black;
+}
+
+.logo {
+    font-size: 1.1rem;
+}
+
+.menu-button {
+    padding: .2rem .4rem;
+    background: var(--b-green);
+    box-shadow: var(--b-box-sw);
+    border: var(--w-bor);
+}
+
+.menu-button:hover{
+background: var(--n-green);
+}
+
+.menu-button[aria-expanded="true"] {
+background: var(--d-green);
+color: white;
+}
+
+
+
+
+.nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    list-style: none;
+    transition: left 0.3s ease;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    overflow-y: auto;
+    border-bottom-right-radius: 10px;
+    border-right: var(--w-bor);
+    border-bottom: var(--w-bor);
+    background: var(--n-green);
+    box-shadow: var(--box-sw);
+    color: white;
+}
+
+.nav-links.active {
+    left: 0;
+}
+
+
+.nav-links a {
+    text-decoration: none;
+    display: block;
+    padding: .2rem .4rem;
+    text-align: center;
+    border-radius: .2rem;
+    background: var(--l-green);
+    box-shadow: var(--b-box-sw);
+    color: black;
+    border: var(--bb-bor);
+}
+
+.nav-links a:hover {
+background: white;
+}
+
+
+nav .donate-link{
+  text-decoration: underline;
+  color: white;
+  font-size: .9rem;
+}
+
+nav .donate-link:hover{
+transform: scale(1.05);
+color: var(--l-green);
+}
+
+
+
+
+
+footer {
+    position: sticky;
+    bottom: 0;
+    height: 4rem;
+    width: 100%;
+    padding: 1rem;
+    background: var(--n-green);
+    border-top: white solid .1rem;
+    box-shadow: 0 -.2rem 0 black;
+    align-content: center;
+}
+
+
+footer .footer-content p{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+main{
+    flex: 1;
+}
+
+
+
+
+
+
+
+
+.about{
+  background: var(--l-green);
+  margin: 0 0 1rem;
+  padding: .5rem;
+}
+
+.about h1{
+  text-align: center;
+  margin: 0 0 .5rem;
+  
+}
+
+.about p{
+  margin: 0;
+  background: white;
+  padding: .5rem;
+  box-shadow: var(--box-sw);
+  border: var(--bb-bor);
+}
+
+
+
+
+
+main.update-logs{
+  background: var(--l-green);
+  margin: 1rem 0 1rem;
+  padding: .5rem;
+}
+
+main.update-logs h1{
+  text-align: center;
+  margin: 0 0 .5rem;
+  background: var(--b-green);
+  padding: .5rem;
+}
+
+main.update-logs ul{
+  margin: 0;
+  background: white;
+  padding: .5rem;
+  box-shadow: var(--box-sw);
+  border: var(--bb-bor);
+}
+
+
+main.update-logs ul{
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+  display: block;
+margin: .2rem auto .2rem;
+text-align: center;
+}
+
+
+
+
+
+
+main.home .welcome{
+text-align: center;
+display: flex;
+flex-direction: row;
+padding: .5rem;
+justify-content: center;
+gap: 1rem;
+background: var(--n-green);
+margin: 2rem 0 2rem;
+width: 100%;
+}
+
+
+
+main.home .welcome .hi,
+main.home .welcome .games{
+    background: var(--b-green);
+    padding: .5rem;
+    border: var(--w-bor);
+    box-shadow: var(--box-sw);
+    width: 50%;
+}
+
+
+
+main.home .welcome .games{
+    border-radius: .8rem;
+}
+
+main.home .welcome .games a{
+    padding: .2rem .4rem;
+    background: white;
+    box-shadow: var(--b-box-sw);
+    text-decoration: none;
+    color: black;
+    width: 50%;
+    margin: 1rem auto 0;
+    text-align: center;
+    border: var(--bb-bor);
+}
+
+
+main.home .welcome .games a:hover{
+    background: var(--l-green);
+    transform: scale(1.03);
+}
+
+
+main.home .second{
+text-align: center;
+padding: 1rem;
+background: var(--b-green);
+margin: 2rem 0 2rem;
+}
+
+
+main.home .second .items{
+    background: var(--n-green);
+    padding: .5rem;
+    border: var(--w-bor);
+    box-shadow: var(--box-sw);
+}
+
+
+
+main.home .second .items a{
+    padding: .2rem .4rem;
+    background: white;
+    box-shadow: var(--b-box-sw);
+    text-decoration: none;
+    color: black;
+    width: 50%;
+    margin: 1rem auto 0;
+    text-align: center;
+    border: var(--bb-bor);
+}
+
+
+main.home .second .items a:hover{
+    background: var(--l-green);
+    transform: scale(1.03);
+}
+
+
+
+
+
+
+
+
+
+main.games{
+
+  margin: 1rem auto 1rem;
+}
+
+
+main.games .heading{
+background: var(--n-green);
+display: flex;
+flex-direction: row;
+padding: .5rem;
+justify-content: center;
+gap: 1rem;
+margin: 1rem auto 2rem;
+align-items: stretch;
+}
+
+
+
+main.games .heading .title{
+width: 40%;
+background: var(--l-green);
+padding: .5rem;
+border: var(--w-bor);
+box-shadow: var(--box-sw);
+display: flex;
+  flex-direction: column;
+
+}
+
+
+
+
+main.games .heading .picture{
+width: 60%;
+background: white;
+border: var(--bb-bor);
+border-radius: .5rem;
+box-shadow: var(--box-sw);
+display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+main.games .heading .picture figure{
+width: 100%;
+  padding: 0.3rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden; 
+}
+
+main.games .heading .picture figure img{
+width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  flex-grow: 1;
+}
+
+main.games .heading .picture figure figcaption{
+text-align: center;
+margin-bottom: auto;
+margin-top: auto;
+  background: var(--d-green);
+  color: white;
+}
+
+
+
+
+main.games .games-section{
+   margin: 2rem auto 2rem;
+}
+
+main.games .games-section .games-box{
+background: var(--trnspr-g);
+
+padding: .5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(50%, 250px), 1fr));
+  gap: .5rem;
+  align-items: start;
+}
+
+main.games .games-section .games-box .game{
+    background: white;
+    padding: .5rem;
+    box-shadow: var(--box-sw);
+    border: var(--bb-bor);
+}
+
+
+main.games .games-section .games-box .game h2{
+    margin: 0 auto 0;
+    display: block;
+    padding: 0;
+    text-align: center;
+}
+
+
+main.games .games-section .games-box .game img{
+    height: auto;
+    width: 100%;
+    box-shadow: var(--box-sw);
+    border: .1rem black solid;
+    display: block;
+    margin: .2rem auto 1rem;
+    border-radius: .3rem;
+}
+
+
+
+
+
+main.games .games-section .games-box .game a{
+    background: var(--l-green);
+    padding: .2rem .4rem;
+    box-shadow: var(--box-sw);
+    border: var(--bb-bor);
+    text-decoration: none;
+    text-align: center;
+    width: 40%;
+    margin: 0 auto .7rem;
+    color: black;
+}
+
+main.games .games-section .games-box .game a:hover{
+    background: var(--b-green);
+    
+}
+
+
+
+main.games .games-section .games-box .game .details p{
+    margin: 0 auto 0;
+    display: block;
+    padding: 0;
+}
+
+main.games .games-section .games-box .game .details .specs{
+background: var(--l-green);
+color: black;
+padding: .5rem;
+margin: .5rem auto 0;
+box-shadow: var(--box-sw);
+border: var(--bb-bor);
+
+}
+
+main.games .games-section .games-box .game .details .specs h3{
+text-align: center;
+display: block;
+margin: .0rem auto .5rem;
+}
+
+
+main.games .games-section .games-box .game .details .specs ul li{
+list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+  display: block;
+margin: .2rem auto .2rem;
+text-align: center;
+}
+
+
+
+main.games .games-section .games-box .game .toggle {
+  margin: 0 auto 0;
+  display: block;
+  padding: .2rem .4rem;
+  background: var(--n-green);
+  color: black;
+  border: var(--bb-bor);
+  box-shadow: var(--b-box-sw);
+}
+
+main.games .games-section .games-box .game .toggle:hover{
+  background: var(--b-green);
+}
+
+main.games .games-section .games-box .game .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+main.games .games-section .games-box .game .details {
+  overflow: hidden;
+  transition: 
+    opacity 0.3s ease,
+    max-height 0.3s ease,
+    margin 0.3s ease;
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+}
+
+main.games .games-section .games-box .game .details.show {
+  opacity: 1;
+  max-height: 3000px;
+  margin: .7rem 0 0;
+}
+
+main.games .games-section .games-box .game .details.hide {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+main.accessories .heading{
+background: var(--n-green);
+display: flex;
+flex-direction: row;
+padding: .5rem;
+justify-content: center;
+gap: 1rem;
+margin: 2rem auto 2rem;
+align-items: stretch;
+}
+
+main.accessories .title{
+width: 40%;
+background: var(--l-green);
+padding: .5rem;
+border: var(--w-bor);
+box-shadow: var(--box-sw);
+display: flex;
+  flex-direction: column;
+
+}
+
+main.accessories .title h1{
+text-align: center;
+}
+
+main.accessories .heading .picture {
+  width: 60%;
+  background: white;
+  border: var(--bb-bor);
+  border-radius: 0.5rem;
+  box-shadow: var(--box-sw);
+display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+main.accessories .heading .picture figure {
+width: 100%;
+margin: 0;
+  padding: 0;
+  padding: 0.3rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden; 
+}
+
+main.accessories .heading .picture figure img {
+width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  flex-grow: 1;
+}
+
+main.accessories .heading .picture figure figcaption {
+
+  background: var(--d-green);
+  color: white;
+  text-align: center;
+margin-bottom: auto;
+margin-top: auto;
+}
+
+
+main.accessories .accessories-section{
+   margin: 2rem auto 2rem;
+}
+
+main.accessories .accessories-section .accessories-box{
+background: var(--n-green);
+padding: .5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(50%, 250px), 1fr));
+  gap: .5rem;
+  align-items: start;
+}
+
+main.accessories .accessories-section .accessories-box .accessorie{
+    background: white;
+    padding: .5rem;
+    box-shadow: var(--box-sw);
+    border: var(--bb-bor);
+}
+
+
+main.accessories .accessories-section .accessories-box .accessorie h2{
+    margin: 0 auto 0;
+    display: block;
+    padding: 0;
+    text-align: center;
+}
+
+
+main.accessories .accessories-section .accessories-box .accessorie img{
+    height: auto;
+    width: 100%;
+    box-shadow: var(--box-sw);
+    border: .1rem black solid;
+    display: block;
+    margin: .2rem auto 1rem;
+    border-radius: .3rem;
+}
+
+
+
+main.accessories .accessories-section .accessories-box .accessorie a{
+    background: var(--l-green);
+    padding: .2rem .4rem;
+    box-shadow: var(--box-sw);
+    border: var(--bb-bor);
+    text-decoration: none;
+    text-align: center;
+    width: 40%;
+    margin: 0 auto .7rem;
+    color: black;
+}
+
+main.accessories .accessories-section .accessories-box .accessorie a:hover{
+    background: var(--b-green);
+    
+}
+
+
+
+main.accessories .accessories-section .accessories-box .accessorie .details p{
+    margin: 0 auto 0;
+    display: block;
+    padding: 0;
+}
+
+main.accessories .accessories-section .accessories-box .accessorie .details .specs{
+background: var(--l-green);
+color: black;
+padding: .5rem;
+margin: .5rem auto 0;
+box-shadow: var(--box-sw);
+border: var(--bb-bor);
+
+}
+
+main.accessories .accessories-section .accessories-box .accessorie .details .specs h3{
+text-align: center;
+display: block;
+margin: .0rem auto .5rem;
+}
+
+
+main.accessories .accessories-section .accessories-box .accessorie .details .specs ul li{
+list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+  display: block;
+margin: .2rem auto .2rem;
+text-align: center;
+}
+
+
+
+
+
+main.accessories .accessories-section .accessories-box .accessorie .toggle {
+  margin: 0 auto 0;
+  display: block;
+  padding: .2rem .4rem;
+  background: var(--b-green);
+  border: var(--bb-bor);
+  box-shadow: var(--box-sw);
+}
+
+main.accessories .accessories-section .accessories-box .accessorie .toggle:hover{
+background: var(--n-green);
+}
+
+main.accessories .accessories-section .accessories-box .accessorie .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+main.accessories .accessories-section .accessories-box .accessorie .details {
+  overflow: hidden;
+  transition: 
+    opacity 0.3s ease,
+    max-height 0.3s ease,
+    margin 0.3s ease;
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+}
+
+main.accessories .accessories-section .accessories-box .accessorie .details.show {
+  opacity: 1;
+  max-height: 3000px;
+  margin: .7rem 0 0;
+}
+
+main.accessories .accessories-section .accessories-box .accessorie .details.hide {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+}
+
+
+
+@media (max-width: 700px){
+main.home .welcome{
+text-align: center;
+display: flex;
+flex-direction: column;
+}
+
+main.home .welcome .hi,
+main.home .welcome .games{
+    width: 100%;
+}
+
+main.games .heading{
+display: flex;
+flex-direction: column;
+}
+
+main.games .heading .title{
+width: 100%;
+}
+
+main.games .heading .picture{
+width: 100%;
+}
+
+
+
+main.accessories .heading{
+display: flex;
+flex-direction: column;
+}
+
+main.accessories .title{
+width: 100%;
+}
+
+main.accessories .heading .picture {
+  width: 100%;
+}
+
+
+}
+

@@ -1,0 +1,4 @@
+Disallow: /accessories-pictures/
+Disallow: /context-pictures/
+Disallow: /games-pictures/
+Disallow: /parts/
