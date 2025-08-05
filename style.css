@@ -661,6 +661,10 @@ main.accessories .accessories-section{
    margin: 2rem auto 2rem;
 }
 
+main.accessories .accessories-section h5{
+   background: white;
+}
+
 main.accessories .accessories-section .accessories-box{
 background: var(--n-green);
 padding: .5rem;
