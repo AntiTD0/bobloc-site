@@ -108,3 +108,46 @@ document.querySelectorAll('.toggle').forEach((button, index) => {
     button.querySelector('.hide-text').hidden = isExpanded;
   });
 });
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('accessory-search');
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const accessories = document.querySelectorAll('.accessorie');
+  
+  function performSearch() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+    
+    accessories.forEach(accessory => {
+      const title = accessory.querySelector('h2').textContent.toLowerCase();
+      const type = accessory.dataset.type;
+      
+      const matchesSearch = title.includes(searchTerm);
+      const matchesFilter = activeFilter === 'all' || type === activeFilter;
+      
+      if (matchesSearch && matchesFilter) {
+        accessory.style.display = 'block';
+      } else {
+        accessory.style.display = 'none';
+      }
+    });
+  }
+  
+  searchInput.addEventListener('input', performSearch);
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      performSearch();
+    });
+  });
+});
