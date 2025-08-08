@@ -35,12 +35,22 @@ document.addEventListener('DOMContentLoaded', async () => {
             menuButton.setAttribute('aria-controls', 'menu');
             navLinks.setAttribute('id', 'menu');
             
-            menuButton.addEventListener('click', (e) => {
-                e.stopPropagation();
+            const toggleMenu = () => {
                 const isExpanded = navLinks.classList.toggle('active');
                 menuButton.setAttribute('aria-expanded', isExpanded.toString());
+
+    if (isExpanded) {
+        document.activeElement.blur();
+    }
+            };
+            
+            // Click event for menu button
+            menuButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleMenu();
             });
             
+            // Close menu when clicking outside
             document.addEventListener('click', (e) => {
                 if (!navLinks.contains(e.target) && e.target !== menuButton) {
                     navLinks.classList.remove('active');
@@ -48,6 +58,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
             });
             
+            // Close menu after clicking a link (with delay for smooth transition)
             navLinks.addEventListener('click', (e) => {
                 if (e.target.tagName === 'A') {
                     setTimeout(() => {
@@ -56,6 +67,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }, 300);
                 }
                 e.stopPropagation();
+            });
+            
+            // NEW: Keyboard event listener for 'E' key
+            document.addEventListener('keydown', (e) => {
+                // Check if 'E' key was pressed (keyCode 69 or 'e'/'E' key)
+                if (e.key === 'e' || e.key === 'E' || e.key.toLowerCase() === 'e') {
+                    // Prevent default behavior (e.g., typing 'e' in an input field)
+                    e.preventDefault();
+                    toggleMenu();
+                }
             });
         }
         
